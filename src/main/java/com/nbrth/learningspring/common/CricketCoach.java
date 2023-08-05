@@ -1,4 +1,4 @@
-package com.nbrth.learningspring;
+package com.nbrth.learningspring.common;
 
 import org.springframework.stereotype.Component;
 
