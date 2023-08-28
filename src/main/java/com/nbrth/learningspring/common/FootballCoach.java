@@ -1,4 +1,4 @@
-package com.nbrth.util;
+package com.nbrth.learningspring.common;
 
 public class FootballCoach implements Coach {
 
