@@ -1,4 +1,4 @@
-package com.nbrth.learningspring.common;
+package com.nbrth.util;
 
 public interface Coach {
     String getDailyWorkout();

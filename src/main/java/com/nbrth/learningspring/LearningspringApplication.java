@@ -3,7 +3,9 @@ package com.nbrth.learningspring;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(
+		scanBasePackages = {"com.nbrth.learningspring", "com.nbrth.util"}
+)
 public class LearningspringApplication {
 
 	public static void main(String[] args) {
