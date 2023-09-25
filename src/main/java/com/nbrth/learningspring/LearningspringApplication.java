@@ -18,8 +18,26 @@ public class LearningspringApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			System.out.println("Hello World");
-			createStudent(studentDAO);
+//			createStudent(studentDAO);
+			createMultipleStudents(studentDAO);
 		};
+
+	}
+
+	public void createMultipleStudents(StudentDAO studentDAO) {
+
+		// Create the student object
+		System.out.println("Creating 3 student objects...");
+		Student tempStudent1 = new Student("Paul", "Doe", "pauldoe@mail.com");
+		Student tempStudent2 = new Student("Mary", "Jane", "maryjane@mail.com");
+		Student tempStudent3 = new Student("Mojito", "Party", "mojitoparty@mail.com");
+
+		// Save the student objects
+		System.out.println("Saving the students...");
+		studentDAO.save(tempStudent1);
+		studentDAO.save(tempStudent2);
+		studentDAO.save(tempStudent3);
+
 	}
 
 	public void createStudent(StudentDAO studentDAO) {
