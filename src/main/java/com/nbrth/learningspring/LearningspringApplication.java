@@ -20,13 +20,13 @@ public class LearningspringApplication {
 		return runner -> {
 			System.out.println("Hello World");
 //			createStudent(studentDAO);
-//			createMultipleStudents(studentDAO);
+			createMultipleStudents(studentDAO);
 //			readStudent(studentDAO);
 //			queryForStudents(studentDAO);
 //			queryForStudentsByLastName(studentDAO);
 //			updateStudent(studentDAO);
 //			deleteStudent(studentDAO);
-			deleteAllStudents(studentDAO);
+//			deleteAllStudents(studentDAO);
 		};
 
 	}
