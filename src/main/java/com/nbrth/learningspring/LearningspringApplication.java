@@ -19,8 +19,32 @@ public class LearningspringApplication {
 		return runner -> {
 			System.out.println("Hello World");
 //			createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+//			createMultipleStudents(studentDAO);
+			readStudent(studentDAO);
 		};
+
+	}
+
+	public void readStudent(StudentDAO studentDAO) {
+
+		// Create a student object
+		System.out.println("Creating the student object...");
+		Student tempStudent = new Student("Daffy", "Duck", "daffy@mail.com");
+
+		// Save the student
+		System.out.println("Saving the student...");
+		studentDAO.save(tempStudent);
+
+		// Display id of the saved student
+		int theId = tempStudent.getId();
+		System.out.println("Saved student. Generated id: " + theId);
+
+		// Retrieve student based on the id: Primary key
+		System.out.println("Retrieving student with id: " + theId);
+		Student myStudent = studentDAO.findById(theId);
+
+		// Display student
+		System.out.println("Found the student: " + myStudent);
 
 	}
 
