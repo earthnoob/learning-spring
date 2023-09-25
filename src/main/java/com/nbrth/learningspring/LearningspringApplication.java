@@ -1,5 +1,6 @@
 package com.nbrth.learningspring;
 
+import java.util.List;
 import com.nbrth.learningspring.dao.StudentDAO;
 import com.nbrth.learningspring.entity.Student;
 import org.springframework.boot.CommandLineRunner;
@@ -20,7 +21,9 @@ public class LearningspringApplication {
 			System.out.println("Hello World");
 //			createStudent(studentDAO);
 //			createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
+//			readStudent(studentDAO);
+//			queryForStudents(studentDAO);
+			queryForStudentsByLastName(studentDAO);
 		};
 
 	}
@@ -45,6 +48,18 @@ public class LearningspringApplication {
 
 		// Display student
 		System.out.println("Found the student: " + myStudent);
+
+	}
+
+	public void queryForStudents(StudentDAO studentDAO) {
+
+		// Get a list of students
+		List<Student> theStudents = studentDAO.findAll();
+
+		// Display list of students
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
+		}
 
 	}
 
@@ -76,6 +91,18 @@ public class LearningspringApplication {
 
 		// Display id of saved student
 		System.out.println("Saved student. Generated id: " + student.getId());
+
+	}
+
+	public void queryForStudentsByLastName(StudentDAO studentDAO) {
+
+		// Get a list of students
+		List<Student> theStudents = studentDAO.findByLastName("Doe");
+
+		// Display list of students
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
+		}
 
 	}
 
