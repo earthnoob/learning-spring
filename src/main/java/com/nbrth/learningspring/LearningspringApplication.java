@@ -24,7 +24,8 @@ public class LearningspringApplication {
 //			readStudent(studentDAO);
 //			queryForStudents(studentDAO);
 //			queryForStudentsByLastName(studentDAO);
-			updateStudent(studentDAO);
+//			updateStudent(studentDAO);
+			deleteStudent(studentDAO);
 		};
 
 	}
@@ -124,6 +125,14 @@ public class LearningspringApplication {
 		// Display updated student
 		System.out.println("Updated student: " + myStudent);
 
+	}
+
+	public void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 6;
+
+		System.out.println("Deleting student id: " + studentId);
+
+		studentDAO.delete(studentId);
 	}
 
 }
