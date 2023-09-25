@@ -23,7 +23,8 @@ public class LearningspringApplication {
 //			createMultipleStudents(studentDAO);
 //			readStudent(studentDAO);
 //			queryForStudents(studentDAO);
-			queryForStudentsByLastName(studentDAO);
+//			queryForStudentsByLastName(studentDAO);
+			updateStudent(studentDAO);
 		};
 
 	}
@@ -103,6 +104,25 @@ public class LearningspringApplication {
 		for (Student tempStudent : theStudents) {
 			System.out.println(tempStudent);
 		}
+
+	}
+
+	public void updateStudent(StudentDAO studentDAO) {
+
+		// Retrieve student based on the id: Primary key
+		int studentId = 1;
+		System.out.println("Getting student with id: " + studentId);
+
+		Student myStudent = studentDAO.findById(studentId);
+
+		System.out.println("Updating student...");
+
+		// Change first name to "Scooby
+		myStudent.setFirstName("Scooby");
+		studentDAO.update(myStudent);
+
+		// Display updated student
+		System.out.println("Updated student: " + myStudent);
 
 	}
 
