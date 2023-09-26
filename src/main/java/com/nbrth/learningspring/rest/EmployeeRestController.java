@@ -4,6 +4,7 @@ import com.nbrth.learningspring.entity.Employee;
 import com.nbrth.learningspring.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +26,11 @@ public class EmployeeRestController {
     @GetMapping("/employees")
     public List<Employee> getEmployees() {
         return employeeService.findAll();
+    }
+
+    @GetMapping("/employees/{employeeId}")
+    public Employee getEmployee(@PathVariable(name = "employeeId") int id) {
+        return employeeService.findById(id);
     }
 
 }
