@@ -1,7 +1,7 @@
 package com.nbrth.learningspring.rest;
 
-import com.nbrth.learningspring.dao.EmployeeDAO;
 import com.nbrth.learningspring.entity.Employee;
+import com.nbrth.learningspring.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,18 +13,18 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeDAO employeeDAO;
+    private final EmployeeService employeeService;
 
-    // Inject employee DAO directly
+    // Inject employee service
     @Autowired
-    public EmployeeRestController(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public EmployeeRestController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     // Expose "/employee" and return a list of employees
     @GetMapping("/employees")
     public List<Employee> getEmployees() {
-        return employeeDAO.findAll();
+        return employeeService.findAll();
     }
 
 }
