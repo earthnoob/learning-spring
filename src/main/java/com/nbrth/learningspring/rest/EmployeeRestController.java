@@ -2,11 +2,9 @@ package com.nbrth.learningspring.rest;
 
 import com.nbrth.learningspring.entity.Employee;
 import com.nbrth.learningspring.service.EmployeeService;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +29,14 @@ public class EmployeeRestController {
     @GetMapping("/employees/{employeeId}")
     public Employee getEmployee(@PathVariable(name = "employeeId") int id) {
         return employeeService.findById(id);
+    }
+
+    // Add mapping for POST /employees - Add new employee
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee theEmployee) {
+        // Set id to 0 in case users pass in id
+        theEmployee.setId(0);
+        return employeeService.save(theEmployee);
     }
 
 }
