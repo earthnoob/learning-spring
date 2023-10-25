@@ -6,15 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
-    <!-- reference CSS file -->
-    <link rel="stylesheet" th:href="@{/css/demo.css}">
 </head>
 <body>
-    Hello World of Spring!
+<form th:action="@{/processForm}" method="post">
+    <input type="text" name="studentName" id="studentName" placeholder="What's your name?">
 
-    <br><br>
-
-    Student name: <span th:text="${param.studentName}"></span>
+    <input type="submit">
+</form>
 </body>
 </html>
